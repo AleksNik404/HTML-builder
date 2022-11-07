@@ -23,8 +23,7 @@ const newFolder = path.resolve(__dirname, 'files-copy');
         continue;
       }
 
-      // Copy one file
-      fs.copyFile(`${pathCur}`, `${pathNew}`);
+      fs.copyFile(pathCur, pathNew);
     }
   } catch (error) {
     console.log('-_-', error);
