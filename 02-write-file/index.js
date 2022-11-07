@@ -1,4 +1,5 @@
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const readline = require('readline');
 
@@ -23,7 +24,7 @@ rl.on('SIGINT', closeMessage);
 /////////////////////////////////////////////
 function saveMessageInFile(text) {
   if (text === 'exit') closeMessage();
-  else ws.write(text + '\r\n');
+  else ws.write(text + os.EOL);
 }
 function closeMessage() {
   console.log(`Text stored in the ConsoleLog.txt file. Have a nice day.`);
