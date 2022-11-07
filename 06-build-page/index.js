@@ -1,4 +1,5 @@
 const fs = require('fs/promises');
+const os = require('os');
 const path = require('path');
 
 const pathProjectFolder = path.resolve(__dirname, 'project-dist');
@@ -66,7 +67,7 @@ async function bundleCSS() {
       const pathToCurStyle = path.resolve(pathToStyles, css);
       const dataStyle = await fs.readFile(pathToCurStyle, 'utf-8');
 
-      fs.appendFile(pathToBundleCSS, dataStyle);
+      fs.appendFile(pathToBundleCSS, dataStyle + os.EOL);
     }
   } catch (error) {
     console.log('-_-', error);
