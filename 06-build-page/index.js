@@ -83,15 +83,15 @@ async function copyAssets(pathFolder) {
       const fileStat = await fs.stat(pathToFile);
 
       let pathToCopy = pathToFile.replace(
-        '06-build-page\\',
-        '06-build-page\\project-dist\\'
+        '06-build-page',
+        path.join('06-build-page', 'project-dist')
       );
 
       if (!fileStat.isFile()) {
         await createFolder(pathToCopy);
         copyAssets(pathToFile);
       } else {
-        await fs.copyFile(`${pathToFile}`, `${pathToCopy}`);
+        await fs.copyFile(pathToFile, pathToCopy);
       }
     }
   } catch (error) {
